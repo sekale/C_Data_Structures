@@ -41,7 +41,7 @@ int main()
     //print_arr(arr_sort,size);
     start = clock();
     //arr_sort = radix_sort(arr_sort, size);
-    arr_sort = radixsort_1(arr_sort,size);
+    arr_sort = radix_sort(arr_sort,size);
     end = clock();
     cpu_time_used = ((double)(end - start))/CLOCKS_PER_SEC;
     printf("\n Cpu Time = %f",cpu_time_used);
@@ -185,7 +185,7 @@ int *radix_sort_bitwise(int *arr_sort, int size)
           return arr_sort;
 }
 
-#define BITS 2
+/*#define BITS 2
 int* radixsort_1(int *a, int n) {
     int i,m = a[0], pos = 0;
     int buckets=1<<BITS;
@@ -202,4 +202,4 @@ int* radixsort_1(int *a, int n) {
     }
     free(b);
     return a;
-}
+}*/
