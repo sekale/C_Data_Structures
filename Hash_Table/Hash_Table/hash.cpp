@@ -59,7 +59,7 @@ void hash_table::addItem(string name, int id)
     int index = HashFunction(name);
     
     //if nothing is present at the index
-    if(HashTable[index]->name == "")
+    if(NumItemsAtIndex(index) != 0)
     {
         HashTable[index]->name=name;
         HashTable[index]->id=id;
