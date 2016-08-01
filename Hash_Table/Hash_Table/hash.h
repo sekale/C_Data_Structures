@@ -28,4 +28,5 @@ class hash_table
     public:
     hash_table();
     int HashFunction(string Key);
+    void addItem(string name, int id);
 };

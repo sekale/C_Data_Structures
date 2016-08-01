@@ -27,13 +27,40 @@ hash_table::hash_table()
     }
 }
 
+void hash_table::addItem(string name, int id)
+{
+    int index = HashFunction(name);
+    
+    //if nothing is present at the index
+    if(HashTable[index]->name == "")
+    {
+        HashTable[index]->name=name;
+        HashTable[index]->id=id;
+    }
+    
+    //if there is already an element/element(s)
+    else
+    {
+        HashTableItem *Ptr = HashTable[index];
+        HashTableItem *newItem = new HashTableItem;
+        newItem->name = name;
+        newItem->id=id;
+        newItem->next=NULL;
+        
+        while(Ptr->next != NULL)
+        {
+            Ptr=Ptr->next; //Go Till End of List
+        }
+        
+        Ptr->next = newItem; //Add the new element to end of list
+    }
+}
+
 int hash_table::HashFunction(string Key)
 {
     int hash = 0;
     int index;
-    
-    
-    
+
     for(int i = 0; i < Key.length() ; i++)
     {
         hash = hash + (int)Key[i];
