@@ -13,9 +13,18 @@
 
 using namespace std;
 
+//Constructor to initialize items in the hash table
 hash_table::hash_table()
 {
-    tablesize = 100;
+    //tablesize = 100;
+    
+    for(int i = 0; i < tablesize; i++)
+    {
+        HashTable[i]  = new HashTableItem;
+        HashTable[i]->name="";
+        HashTable[i]->id=0;
+        HashTable[i]->next = NULL;
+    }
 }
 
 int hash_table::HashFunction(string Key)

@@ -14,7 +14,16 @@ using namespace std;
 class hash_table
 {
     private:
-    int tablesize;
+    static const int tablesize = 10;
+    
+    struct HashTableItem
+    {
+        string name;
+        int id;
+        HashTableItem *next;
+    };
+    
+    HashTableItem *HashTable[tablesize]; //hash table holding table size elements
     
     public:
     hash_table();
