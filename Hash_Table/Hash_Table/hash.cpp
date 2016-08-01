@@ -27,6 +27,33 @@ hash_table::hash_table()
     }
 }
 
+void hash_table::PrintHashTable()
+{
+    int number_of_items_current_index;
+    
+    for(int i = 0; i < tablesize; i++)
+    {
+        //NOTE : WILL PRINT ONLY THE FIRST ELEMENT OF EVERY INDEX IN THE HASH TABLE
+        number_of_items_current_index = NumItemsAtIndex(i);
+        cout << "Item(s) at Index: " << i <<  "\n";
+        cout << HashTable[i] -> name << "\n";
+        cout << HashTable[i] -> id <<"\n";
+        cout << "Number of Items = " << number_of_items_current_index << endl;
+    }
+}
+
+int hash_table::NumItemsAtIndex(int index)
+{
+    int count = 0;
+    count = count + 1;
+    while(HashTable[index] -> next != NULL)
+    {
+        count++;
+        HashTable[index] = HashTable[index]->next;
+    }
+    return count;
+}
+
 void hash_table::addItem(string name, int id)
 {
     int index = HashFunction(name);

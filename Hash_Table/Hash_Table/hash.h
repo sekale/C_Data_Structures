@@ -29,4 +29,6 @@ class hash_table
     hash_table();
     int HashFunction(string Key);
     void addItem(string name, int id);
+    int NumItemsAtIndex(int index);
+    void PrintHashTable();
 };
