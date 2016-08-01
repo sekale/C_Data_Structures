@@ -15,13 +15,13 @@ using namespace std;
 
 int main(int argc, const char * argv[])
 {
-    int index;
-    hash_table HashObj;
-    // insert code here...
-    cout << "Hello, World!\n";
-    index = HashObj.HashFunction("Sid");
-    cout << "index = " << index;
+    hash_table HashTableInstance;
     
-    return 0;
+    HashTableInstance.addItem("Kevin",2);
+    HashTableInstance.addItem("Siddhant",1);
+    HashTableInstance.addItem("Mark",3);
+    HashTableInstance.addItem("Bourne",4);
+    HashTableInstance.addItem("Spacey",5);
+    HashTableInstance.PrintHashTable();
 }
 

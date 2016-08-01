@@ -30,22 +30,41 @@ hash_table::hash_table()
 void hash_table::PrintHashTable()
 {
     int number_of_items_current_index;
+    HashTableItem *hash_table_print_helper_pointer = NULL;
     
     for(int i = 0; i < tablesize; i++)
     {
-        //NOTE : WILL PRINT ONLY THE FIRST ELEMENT OF EVERY INDEX IN THE HASH TABLE
+        //NOTE : PRINTS ALL ELEMENTS PRESENT AT THE EACH INDEX OF HASH TABLE
         number_of_items_current_index = NumItemsAtIndex(i);
-        cout << "Item(s) at Index: " << i <<  "\n";
-        cout << HashTable[i] -> name << "\n";
-        cout << HashTable[i] -> id <<"\n";
+        cout <<"---------------------------------------\n";
         cout << "Number of Items = " << number_of_items_current_index << endl;
+        hash_table_print_helper_pointer = HashTable[i];
+        while(number_of_items_current_index >= 1)
+        {
+            cout << "Item(s) at Index " << i <<  "\n";
+            cout << hash_table_print_helper_pointer -> name << "\n";
+            cout << hash_table_print_helper_pointer -> id <<"\n";
+            cout << " -- ";
+            number_of_items_current_index--; //after printing the element at the index
+            
+            if(hash_table_print_helper_pointer->next != NULL)
+            {
+                hash_table_print_helper_pointer = hash_table_print_helper_pointer -> next;
+            }
+        }
+        cout <<"---------------------------------------\n";
+
     }
 }
 
 int hash_table::NumItemsAtIndex(int index)
 {
     int count = 0;
-    count = count + 1;
+    if(HashTable[index]->name!="" && HashTable[index]->id!=0)
+    {
+      count = count + 1;
+    }
+    
     while(HashTable[index] -> next != NULL)
     {
         count++;
@@ -91,7 +110,7 @@ int hash_table::HashFunction(string Key)
     for(int i = 0; i < Key.length() ; i++)
     {
         hash = hash + (int)Key[i];
-        cout << "hash = " << hash;
+        //cout << "hash = " << hash;
     }
     
     index = hash % tablesize;
