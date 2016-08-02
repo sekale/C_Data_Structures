@@ -39,9 +39,9 @@ void hash_table::PrintHashTable()
         cout <<"---------------------------------------\n";
         cout << "Number of Items = " << number_of_items_current_index << endl;
         hash_table_print_helper_pointer = HashTable[i];
+        cout << "Item(s) at Index " << i <<  "\n";
         while(number_of_items_current_index >= 1)
         {
-            cout << "Item(s) at Index " << i <<  "\n";
             cout << hash_table_print_helper_pointer -> name << "\n";
             cout << hash_table_print_helper_pointer -> id <<"\n";
             cout << " -- ";
@@ -51,6 +51,7 @@ void hash_table::PrintHashTable()
             {
                 hash_table_print_helper_pointer = hash_table_print_helper_pointer -> next;
             }
+            cout<<endl;
         }
         cout <<"---------------------------------------\n";
 
@@ -60,15 +61,16 @@ void hash_table::PrintHashTable()
 int hash_table::NumItemsAtIndex(int index)
 {
     int count = 0;
-    if(HashTable[index]->name!="" && HashTable[index]->id!=0)
+    HashTableItem *itemPtr = HashTable[index];
+    if(itemPtr->name != "" && itemPtr->id != 0)
     {
       count = count + 1;
     }
     
-    while(HashTable[index] -> next != NULL)
+    while(itemPtr -> next != NULL)
     {
         count++;
-        HashTable[index] = HashTable[index]->next;
+        itemPtr= itemPtr->next;
     }
     return count;
 }
