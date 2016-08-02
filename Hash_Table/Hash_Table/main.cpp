@@ -23,5 +23,6 @@ int main(int argc, const char * argv[])
     HashTableInstance.addItem("Bourne",4);
     HashTableInstance.addItem("Spacey",5);
     HashTableInstance.PrintHashTable();
+    HashTableInstance.FindIdByName("Spacey");
 }
 

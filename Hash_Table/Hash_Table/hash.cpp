@@ -27,6 +27,31 @@ hash_table::hash_table()
     }
 }
 
+void hash_table::FindIdByName(string Name)
+{
+    int index = HashFunction(Name);
+    bool isNameInHashTable = false;
+    
+    int returnId = 0;
+    
+    HashTableItem *itemPtr = HashTable[index];
+    while(itemPtr != NULL)
+    {
+        if(itemPtr -> name == Name)
+        {
+            returnId = itemPtr -> id;
+            isNameInHashTable = true;
+        }
+        itemPtr = itemPtr -> next;
+    }
+    
+    if(isNameInHashTable == true)
+    {
+        cout << "\n Name Found in Hash Table at index:"<<index<<endl<<"Item Id: "<<returnId<<endl;
+    }
+}
+
+
 void hash_table::PrintHashTable()
 {
     int number_of_items_current_index;

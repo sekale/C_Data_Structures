@@ -31,4 +31,5 @@ class hash_table
     void addItem(string name, int id);
     int NumItemsAtIndex(int index);
     void PrintHashTable();
+    void FindIdByName(string Name);
 };
