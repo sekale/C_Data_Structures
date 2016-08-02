@@ -27,6 +27,60 @@ hash_table::hash_table()
     }
 }
 
+void hash_table::RemoveItem(string Name)
+{
+    int index = HashFunction(Name);
+    HashTableItem *itemPtr = HashTable[index];
+    HashTableItem *delPtr;
+    HashTableItem *prevPtr = NULL;
+    
+    if(HashTable[index] -> name == "" && HashTable[index] -> id == 0)
+    {
+        cout<<"Empty Bucket";
+    }
+    
+    else
+    {
+        if(itemPtr -> name == Name)
+        {
+            if(itemPtr -> next != NULL)
+            {
+                delPtr = HashTable[index];
+                HashTable[index] = HashTable[index] -> next;
+                delete delPtr;
+            }
+            
+            else
+            {
+                itemPtr -> name = "";
+                itemPtr -> id = 0;
+            }
+        }
+        
+        else
+        {
+            prevPtr = itemPtr;
+            itemPtr = itemPtr -> next;
+            while(itemPtr != NULL)
+            {
+                if(itemPtr -> name == Name)
+                {
+                    delPtr = itemPtr;
+                    itemPtr = itemPtr -> next;
+                    delete delPtr;
+                    prevPtr -> next = itemPtr;
+                }
+                prevPtr = prevPtr -> next;
+                itemPtr = itemPtr -> next;
+            }
+            
+        }
+
+    }
+    
+    
+}
+
 void hash_table::FindIdByName(string Name)
 {
     int index = HashFunction(Name);
