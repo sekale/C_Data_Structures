@@ -13,3 +13,9 @@
 	b)
 
 3) Forward List
+
+For referring to custom hash function using unordered map, the most helpful resource that I found was:
+http://www.drdobbs.com/windows/user-defined-hash-functions-for-unordere/231600210?pgno=3
+
+Explanation on how to use functions and then pass the prototype to your unordered map declaration, how to avoid that completely by decalring it as a structure and doing operator overloading, and finally changing the hash function in the namespace std for the current project is shows in the pages 1-4 in the above link.
+
