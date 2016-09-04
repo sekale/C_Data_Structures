@@ -35,6 +35,8 @@ int main(int argc, const char * argv[])
 {
     
     //SET IMPLEMENTATION (ORDERED)
+    //SET DOES NOT ALLOW DUPLICATES TO BE ENTERED
+    //MULTISET CAN BE USED FOR THAT PURPOSE
     set<int> myset;
     myset.insert(1);
     myset.insert(4);
