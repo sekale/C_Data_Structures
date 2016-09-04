@@ -19,8 +19,10 @@
 using namespace std;
 typedef pair<string, string> Name;
 
+//Custom Hash Function
 struct custom_hash
 {
+    //Declaration for the custom has function
     size_t operator()(const Name &name)const
     {
         return hash<string>()(name.first) ^ hash<string>()(name.second);
