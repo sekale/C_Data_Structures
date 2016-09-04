@@ -1,0 +1,15 @@
+1) Container
+	Advantages: 
+	a) Stored in Contiguous memory addresses (more cache hits)
+	b) 
+
+2) List (Doubly Linked)
+	Advantages:
+	a) mylist.splice (itr, mylist2, itr_a, itr_b)
+		Making a sub-list takes O(1) time; advantage	
+
+	Disadvantages:
+	a) Stored randomly; each element in memory (hence slower)
+	b)
+
+3) Forward List
