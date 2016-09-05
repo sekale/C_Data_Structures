@@ -68,9 +68,33 @@ class LinkedList
             
             while(runner_node != NULL)
             {
-                cout << runner_node -> value;
+                cout << runner_node -> value << " ->" ;
                 runner_node = runner_node -> next;
             }
+        }
+    
+        int get_list_size()
+        {
+            int list_size = 0;
+            Node *runner_node = head;
+            
+            while(runner_node != NULL)
+            {
+                list_size++;
+                runner_node = runner_node -> next;
+            }
+            
+            return list_size;
+        }
+    
+        void swap(Node *swap, Node *head)
+        {
+            Node *temp = (Node * ) malloc(sizeof(Node));
+            temp -> value = swap -> value;
+            
+            swap -> value = head -> value;
+            
+            head -> value = temp -> value;
         }
 };
 
