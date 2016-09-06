@@ -9,3 +9,5 @@ Link :https://www.youtube.com/watch?v=ltBdTiRgSaw&index=2&list=PL5jc9xFGsL8G3y3y
 
 These videos are very helpful, specially for someone like me starting to learn STL stuff.
 
+Linked_List contains my solutions to problems from Gayle Laakman McDowell's book Cracking the Coding Interview.
+
