@@ -23,6 +23,18 @@ typedef struct Node
     
 }TreeNode;
 
+int getBalanceFactor(TreeNode *Node)
+{
+    if(Node == NULL)
+    {
+        return 0;
+    }
+    
+    else{
+        return (Node -> left -> height) - (Node -> right -> height);
+    }
+}
+
 TreeNode *addNode(TreeNode *root, int value)
 {
     if(root == NULL)
@@ -48,7 +60,7 @@ TreeNode *addNode(TreeNode *root, int value)
     
     if(root -> left != NULL && root -> right != NULL){
         root -> height = maxFunct(root -> left -> height, root -> right ->height) + 1;
-        root -> balance_factor = (root -> left -> height - root -> right -> height);
+        root -> balance_factor = getBalanceFactor(root);
     }
     
     else if(root -> left != NULL){
@@ -64,15 +76,18 @@ TreeNode *addNode(TreeNode *root, int value)
     //4 conditions for balancing AVL trees
     if(root -> balance_factor > 1)              //L
     {
-        if(value < root -> left -> left -> value){      //LL
+        if(value <= root -> left -> value){      //LL
             TreeNode *temp_node;
-            temp_node = root -> right;
-            root -> right = root -> right -> right;
-            root -> right -> right = temp_node;
+            temp_node = root -> left;
+            root -> left = root -> left -> left;
+            root -> right = temp_node;
         }
         
         else{                                   //LR
-            
+            //TreeNode *temp_node;
+            //temp_node = root -> right;
+            //root -> right = root -> right -> right;
+            //root -> right -> right = temp_node;
         }
     }
     
