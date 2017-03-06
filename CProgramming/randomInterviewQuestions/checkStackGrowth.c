@@ -7,9 +7,9 @@ int checkStackGrowthHelper(int *ptr)
 	{
 		printf("\n ptr: %p", ptr);
 		printf("\n &a: %p", &a);
-		return 0;
+		return 0; //indicates stack growth downwards
 	}
-	return 1;
+	return 1; //indicates stack growth upwards
 }
 
 int checkStackGrowth()
@@ -21,4 +21,5 @@ int checkStackGrowth()
 int main()
 {
 	printf("\n Stack Grows: %d", checkStackGrowth());
+	return 0;
 }
