@@ -20,7 +20,7 @@ public:
         return nd;
     }
 
-    void addNode(int value)
+    listNode *addNode(int value)
     {
         listNode *nd = createNode(value);
 
@@ -36,6 +36,7 @@ public:
             }
             temp -> next = nd;
         }
+        return nd;
     }
 
     void printList()
