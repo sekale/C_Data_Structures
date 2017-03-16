@@ -1,7 +1,8 @@
 #include <iostream>
-
+#define ADJMATRIX
 using namespace std;
 
+#ifdef ADJMATRIX
 class Graph
 {
 private:
@@ -39,3 +40,8 @@ public:
         return adjMatrix;
     }
 };
+#endif
+
+#ifdef ADJLIST
+
+#endif
